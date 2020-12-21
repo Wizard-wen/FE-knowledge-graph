@@ -4,7 +4,7 @@
 
 import {
   ClassifyProductInterface,
-  ModernProductInterface,
+  ModernProductInterface
 } from '../interface';
 
 export class ClassifyProductA implements ClassifyProductInterface {
