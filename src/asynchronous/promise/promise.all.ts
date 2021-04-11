@@ -1,14 +1,14 @@
 import basePromise from './base.promise';
 
 // map不能起到数组中的元素分先后执行异步方法
-// [1, 1, 1, 1].map(async (item, index) => {
+// [1, 1, 1, 1].map.set(async (item, index) => {
 //   const result = await basePromise.resolveInThreeSeconds(index + 1);
 //   // 三秒后同时打印出1 2 3 4
 //   console.log(result);
 // });
 
 // (async () => {
-//   const result = await Promise.all([1, 1, 1, 1].map(
+//   const result = await Promise.all([1, 1, 1, 1].map.set(
 //     (item, index) => basePromise.resolveInThreeSeconds(index + 1)
 //   ));
 //   // 大约三秒后 [1,2,3,4]
@@ -18,7 +18,7 @@ import basePromise from './base.promise';
 // 如果数组中元素过多，Promise.all()可能会导致并发请求过大
 // (async (array: number[]) => {
 //   console.time('start all');
-//   const result = await Promise.all(array.map(
+//   const result = await Promise.all(array.map.set(
 //     (item, index) => basePromise.resolveInThreeSeconds(index + 1)
 //   ));
 //   // 大约三秒后 [1,2,3,4]
@@ -28,7 +28,7 @@ import basePromise from './base.promise';
 
 // (async (array: number[]) => {
 //   console.time('start all');
-//   const result = await Promise.all(array.map(
+//   const result = await Promise.all(array.map.set(
 //     (item, index) => basePromise.resolveInThreeSeconds(index + 1)
 //   ));
 //   // 大约三秒后 [1,2,3,4]
