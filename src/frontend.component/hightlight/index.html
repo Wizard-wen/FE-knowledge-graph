@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="highlights">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12" id="paragraph">
+        <p>
+          Robotics is an interdisciplinary branch of engineering and science that includes mechanical engineering,
+          electronics engineering, information engineering, computer science, and others. Robotics deals with the
+          design, construction, operation, and use of
+          robots, as well as computer systems for their control, sensory feedback, and information processing. These
+          technologies are used to develop machines that can substitute for humans and replicate human actions. Robots
+          can be used in many situations
+          and for lots of purposes, but today many are used in dangerous environments (including bomb detection and
+          deactivation), manufacturing processes, or where humans cannot survive (e.g. in space). Robots can take on any
+          form but some are made to
+          resemble humans in appearance. This is said to help in the acceptance of a robot in certain replicative
+          behaviors usually performed by people. Such robots attempt to replicate walking, lifting, speech, cognition,
+          and basically anything a human
+          can do. Many of today's robots are inspired by nature, contributing to the field of bio-inspired robotics. The
+          concept of creating machines that can operate autonomously dates back to classical times, but research into
+          the functionality and
+          potential uses of robots did not grow substantially until the 20th century.[1] Throughout history, it has been
+          frequently assumed that robots will one day be able to mimic human behavior and manage tasks in a human-like
+          fashion. Today, robotics
+          is a rapidly growing field, as technological advances continue; researching, designing, and building new
+          robots serve various practical purposes, whether domestically, commercially, or militarily. Many robots are
+          built to do jobs that are hazardous
+          to people such as defusing bombs, finding survivors in unstable ruins, and exploring mines and shipwrecks.
+          Robotics is also used in STEM (science, technology, engineering, and mathematics) as a teaching aid. Robotics
+          is a branch of engineering
+          that involves the conception, design, manufacture, and operation of robots. This field overlaps with
+          electronics, computer science, artificial intelligence, mechatronics, nanotechnology and bioengineering.
+        </p>
+      </div>
+      <div class="col-md-12 input-group mt-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="basic-addon1">
+              <i class="fas fa-pencil-alt"></i>
+          </span>
+        </div>
+        <input id="typed-text" type="text" class="form-control" placeholder="Type text" onkeyup="highlight()">
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  var opar = document.getElementById('paragraph').innerHTML;
+
+  function highlight() {
+    var paragraph = document.getElementById('paragraph');
+    var search = document.getElementById('typed-text').value;
+    search = search.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); //https://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+
+    var re = new RegExp(search, 'g');
+    var m;
+
+    if (search.length > 0)
+      paragraph.innerHTML = opar.replace(re, `<mark>$&</mark>`);
+    else paragraph.innerHTML = opar;
+  }
+</script>
+</body>
+</html>

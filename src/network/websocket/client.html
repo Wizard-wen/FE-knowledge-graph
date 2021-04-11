@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>在线聊天</title>
+</head>
+<body>
+<label>
+  <input type="text" onblur="sendToServer(value)">
+</label>
+<script>
+  function sendToServer(value) {
+    console.log(value);
+    wsServer.send(JSON.stringify({ name: 'xxx' }));
+  }
+  const wsServer = new WebSocket('ws://localhost:8000');
+  wsServer.onopen = (e) => {
+    console.log('readyState --- ', wsServer.readyState);
+    console.log('url --- ', wsServer.url);
+    console.log('protocol --- ', wsServer.protocol);
+    console.log('binaryType --- ', wsServer.binaryType);
+    console.log('bufferedAmount --- ', wsServer.bufferedAmount);
+    console.log('extensions --- ', wsServer.extensions);
+    (typeof e == 'string') && wsServer.send(e);//向后台发送数据
+    if (false) {
+      wsServer.close();
+      // INVALID_ACCESS_ERR: 一个无效的code
+      // SYNTAX_ERR: reason 字符串太长（超过123字节）
+    }
+  };
+  wsServer.onclose = (e) => {//当链接关闭的时候触发
+    console.log('close --- ');
+  };
+  wsServer.onmessage = (e) => {//后台返回消息的时候触发
+    console.log(e);
+  };
+  wsServer.onerror = (e) => {//错误情况触发
+
+  };
+</script>
+</body>
+</html>
