@@ -2,6 +2,8 @@
 /node_modules
 /dist
 .env
+/static
+/mock.data
 # Logs
 logs
 *.log
